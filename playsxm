@@ -3,9 +3,6 @@ set -euo pipefail
 
 if [[ "$1" == "list" ]]; then
     sxm --list-channels
-elif [[ "$1" == "stop" ]]; then
-    disown &>/dev/null
-    echo "HTTP Server & VLC have been shut down."
 else
     if [[ ! $(jobs) ]]; then
         sxm --host $SXM_HOST --region $SXM_REGION --port $SXM_PORT &>/dev/null &
